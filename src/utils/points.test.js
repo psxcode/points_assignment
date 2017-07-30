@@ -114,3 +114,5 @@ describe('isPointNearZero', function () {
 		expect(isPointNearZero(5)(pt1)).equal(false);
 	});
 });
+
+/* Add more tests */
