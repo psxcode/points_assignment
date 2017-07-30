@@ -1,7 +1,7 @@
 {
-  "name": "points",
+  "name": "points_assignment",
   "version": "1.0.0",
-  "description": "",
+  "description": "Just run 'npm i && npm start'",
   "main": "index.js",
   "scripts": {
     "test": "mocha-webpack 'src/**/*.test.js'",
@@ -9,8 +9,8 @@
     "start": "webpack-dev-server",
     "build": "webpack"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Alex Feinstein",
+  "license": "MIT",
   "dependencies": {
     "rxjs": "^5.4.2"
   },
