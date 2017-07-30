@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Title</title>
 	<link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 </head>
 <body>
 <canvas id="canvas"></canvas>
@@ -17,26 +18,29 @@
 	<section class="container">
 		<div>Circle:</div>
 		<div id="circle-center"><span> - center:</span><span class="value">[- -]</span></div>
-		<div id="circle-radius"><span> - radius:</span><span class="value">0 px</span></div>
-		<div id="circle-area"><span> - area:</span><span class="value">0 px2</span></div>
+		<div id="circle-radius"><span> - radius:</span><span class="value">- px</span></div>
+		<div id="circle-area"><span> - area:</span><span class="value">- px2</span></div>
 	</section>
 	<section class="container">
 		<div>Rect:</div>
 		<div id="rect-center"><span> - center:</span><span class="value">[- -]</span></div>
-		<div id="rect-area"><span> - area:</span><span class="value">0 px2</span></div>
+		<div id="rect-area"><span> - area:</span><span class="value">- px2</span></div>
 	</section>
 </section>
 <div id="buttons">
 	<button id="reset">Reset</button>
 	<button id="about">About</button>
 </div>
-<div id="dialog">
-	<p>1. Select three arbitrary points by clicking three times on the screen</p>
-	<p>2. Move the points around and watch how the shapes play along nicely!</p>
-	<p>You can play with the browser's zoom level, everything will still be correct!</p>
-	<p>Click the 'reset' button to start all over again.</p>
-	<p>Assignment coded from scratch by Abdulali Gasimov</p>
-	<p>source code: https://github.com/VisViva/asgn</p>
+<div id="dialog-backdrop">
+	<div id="dialog">
+		<p>1. Select three points by clicking on the screen</p>
+		<p>2. Drag any created point, the shapes will recalculate</p>
+		<p>3. Click the 'Reset' button to clear the screen</p>
+		<div class="author">
+			<p>coded by Alex Feinstein</p>
+			<p>hosted at <a href="https://github.com/psxcode/points_assignment">Github</a></p>
+		</div>
+	</div>
 </div>
 <script src="index.js"></script>
 </body>

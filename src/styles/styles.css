@@ -17,11 +17,29 @@ html, body {
 
 body {
 	background: #c7c7c7;
+	font-family: 'Open Sans Condensed', sans-serif;
 }
 
 p {
 	margin: 0;
 	padding: 0;
+}
+
+button {
+	font-family: inherit;
+	margin: 0;
+	padding: 2px 20px;
+	background: #aeaeae;
+	border: solid thin gray;
+	font-size: 20px;
+	outline: none;
+}
+
+button:hover {
+	background: #cbcbcb;
+}
+button:active {
+	background: #999999;
 }
 
 #canvas {
@@ -35,6 +53,10 @@ p {
 	bottom: 20px;
 }
 
+#buttons > *:not(:first-child) {
+	margin-left: 10px;
+}
+
 #info {
 	position: absolute;
 	left: 20px;
@@ -43,8 +65,19 @@ p {
 	pointer-events: none;
 }
 
+#dialog-backdrop {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: black;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.5s;
+}
+
 #dialog {
-	display: none;
 	position: absolute;
 	width: 640px;
 	height: 480px;
@@ -54,6 +87,23 @@ p {
 	right: 0;
 	top: 0;
 	bottom: 0;
+	margin: auto;
+	user-select: none;
+	color: white;
+	font-family: inherit;
+	font-size: 26px;
+	text-align: center;
+	cursor: default;
+}
+
+#dialog a {
+	text-decoration: underline;
+	color: white;
+}
+
+#dialog .author {
+	margin-top: 20px;
+	font-size: 18px;
 }
 
 .container {

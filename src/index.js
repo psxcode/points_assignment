@@ -271,6 +271,41 @@ Observable.combineLatest(
 		}
 	});
 
+function toPointsRenderData([points, mouseoverIndex]) {
+	return points.map(([x, y], index) => {
+		return Object.assign(
+			{},
+			POINT_RENDER_DATA,
+			mouseoverIndex === index ? POINT_MOUSEOVER_RENDER_DATA : {},
+			{x, y}
+		);
+	});
+}
+
+function toRectRenderData(points) {
+	const [lastX, lastY] = points[3];
+
+	return Object.assign(
+		{},
+		RECT_RENDER_DATA,
+		{
+			lastPointRenderData: Object.assign({}, RECT_RENDER_DATA.lastPointRenderData, {
+				x: lastX,
+				y: lastY
+			})
+		},
+		{points}
+	);
+}
+
+function toCircleRenderData([[x, y], radius]) {
+	return Object.assign({}, CIRCLE_RENDER_DATA, {x, y, radius});
+}
+
+/**
+ * BORING PART BEGINS. INFOS, BUTTONS, DIALOGS
+ */
+
 const ptInfos = [
 		document.querySelector('#pt1 .value'),
 		document.querySelector('#pt2 .value'),
@@ -282,9 +317,6 @@ const ptInfos = [
 	rectCenterInfo = document.querySelector('#rect-center .value'),
 	rectAreaInfo = document.querySelector('#rect-area .value');
 
-/**
- * Display points info
- */
 points$.subscribe((points) => {
 	for (var i = 0; i < points.length; ++i) {
 		const [x, y] = points[i];
@@ -321,33 +353,16 @@ circleRadius$.subscribe((radius) => {
 	circleRadiusInfo.innerHTML = `${Math.round(radius)} px`;
 });
 
-function toPointsRenderData([points, mouseoverIndex]) {
-	return points.map(([x, y], index) => {
-		return Object.assign(
-			{},
-			POINT_RENDER_DATA,
-			mouseoverIndex === index ? POINT_MOUSEOVER_RENDER_DATA : {},
-			{x, y}
-		);
-	});
-}
+const dialogBackdrop = document.querySelector('#dialog-backdrop'),
+	aboutClick$ = toElementEventObservable('click')(document.querySelector('#about')),
+	dialogBackdropClick$ = toElementEventObservable('click')(dialogBackdrop);
 
-function toRectRenderData(points) {
-	const [lastX, lastY] = points[3];
+aboutClick$.subscribe(() => {
+	dialogBackdrop.style.opacity = 0.5;
+	dialogBackdrop.style.pointerEvents = 'auto';
+});
 
-	return Object.assign(
-		{},
-		RECT_RENDER_DATA,
-		{
-			lastPointRenderData: Object.assign({}, RECT_RENDER_DATA.lastPointRenderData, {
-				x: lastX,
-				y: lastY
-			})
-		},
-		{points}
-	);
-}
-
-function toCircleRenderData([[x, y], radius]) {
-	return Object.assign({}, CIRCLE_RENDER_DATA, {x, y, radius});
-}
+dialogBackdropClick$.subscribe(() => {
+	dialogBackdrop.style.opacity = 0;
+	dialogBackdrop.style.pointerEvents = 'none';
+});
