@@ -344,13 +344,17 @@ Observable.combineLatest(
 	rectArea$,
 	(points, area) => isAllPoints(points) ? area : 0
 ).subscribe((area) => {
-	const text = `${area} px2`;
+	const text = `${area || '-'} px2`;
 	circleAreaInfo.innerHTML = text;
 	rectAreaInfo.innerHTML = text;
 });
 
-circleRadius$.subscribe((radius) => {
-	circleRadiusInfo.innerHTML = `${Math.round(radius)} px`;
+Observable.combineLatest(
+	points$,
+	circleRadius$,
+	(points, radius) => isAllPoints(points) ? radius : 0
+).subscribe((radius) => {
+	circleRadiusInfo.innerHTML = `${radius ? Math.round(radius) : '-'} px`;
 });
 
 const dialogBackdrop = document.querySelector('#dialog-backdrop'),
