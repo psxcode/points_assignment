@@ -18,6 +18,7 @@ html, body {
 body {
 	background: #c7c7c7;
 	font-family: 'Open Sans Condensed', sans-serif;
+	color: #222222;
 }
 
 p {
@@ -26,10 +27,11 @@ p {
 }
 
 button {
-	font-family: inherit;
 	margin: 0;
 	padding: 2px 20px;
+	color: inherit;
 	background: #aeaeae;
+	font-family: inherit;
 	border: solid thin gray;
 	font-size: 20px;
 	outline: none;
