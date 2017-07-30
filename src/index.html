@@ -7,7 +7,37 @@
 </head>
 <body>
 <canvas id="canvas"></canvas>
-<button id="reset">Reset</button>
+<section id="info">
+	<section class="container">
+		<div>Points</div>
+		<div id="pt1"><span> - first:</span><span class="value">[- -]</span></div>
+		<div id="pt2"><span> - second:</span><span class="value">[- -]</span></div>
+		<div id="pt3"><span> - third:</span><span class="value">[- -]</span></div>
+	</section>
+	<section class="container">
+		<div>Circle:</div>
+		<div id="circle-center"><span> - center:</span><span class="value">[- -]</span></div>
+		<div id="circle-radius"><span> - radius:</span><span class="value">0 px</span></div>
+		<div id="circle-area"><span> - area:</span><span class="value">0 px2</span></div>
+	</section>
+	<section class="container">
+		<div>Rect:</div>
+		<div id="rect-center"><span> - center:</span><span class="value">[- -]</span></div>
+		<div id="rect-area"><span> - area:</span><span class="value">0 px2</span></div>
+	</section>
+</section>
+<div id="buttons">
+	<button id="reset">Reset</button>
+	<button id="about">About</button>
+</div>
+<div id="dialog">
+	<p>1. Select three arbitrary points by clicking three times on the screen</p>
+	<p>2. Move the points around and watch how the shapes play along nicely!</p>
+	<p>You can play with the browser's zoom level, everything will still be correct!</p>
+	<p>Click the 'reset' button to start all over again.</p>
+	<p>Assignment coded from scratch by Abdulali Gasimov</p>
+	<p>source code: https://github.com/VisViva/asgn</p>
+</div>
 <script src="index.js"></script>
 </body>
 </html>

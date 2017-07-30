@@ -1,4 +1,4 @@
-export function rgba(r, g, b, a) {
+export function rgba(r, g, b, a = 1) {
 	[r, g, b] = [r, g, b].map(checkColor);
 	a = checkAlpha(a);
 	return `rgba(${r}, ${g}, ${b}, ${a})`;

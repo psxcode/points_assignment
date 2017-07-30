@@ -10,6 +10,18 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'index.js'
 	},
+	module: {
+		rules: [{
+			test: /\.js$/,
+			exclude: /node_modules/,
+			use: {
+				loader: 'babel-loader',
+				options: {
+					presets: ['env']
+				}
+			}
+		}]
+	},
 	plugins: [
 		// new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false}),
 		new CopyWebpackPlugin([

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha-webpack 'src/**/*.test.js'",
+    "test:watch": "npm run test -- --watch",
     "start": "webpack-dev-server",
     "build": "webpack"
   },
@@ -14,7 +15,13 @@
     "rxjs": "^5.4.2"
   },
   "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.0",
     "copy-webpack-plugin": "^4.0.1",
+    "mocha": "^3.4.2",
+    "mocha-webpack": "^1.0.0-rc.1",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1"
   }

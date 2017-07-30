@@ -1,4 +1,4 @@
-import {NUM_POINTS, POINT_RADIUS} from '../constants';
+import {MAX_NUM_POINTS, POINT_RADIUS} from '../constants';
 
 export function addPointReducer(maxNumPoints) {
 	return function (points, {pt}) {
@@ -65,12 +65,15 @@ export function deltaPoint([x1, y1], [x2, y2]) {
 	return [x2 - x1, y2 - y1];
 }
 
-export function isPointNearZero([x, y]) {
-	return Math.abs(x) < 10 && Math.abs(y) < 10;
+
+export function isPointNearZero(threshold) {
+	return function([x, y]) {
+		return Math.abs(x) < threshold && Math.abs(y) < threshold;
+	}
 }
 
 export function isPointsNear([pt1, pt2]) {
-	return isPointNearZero(deltaPoint(pt1, pt2));
+	return isPointNearZero(10)(deltaPoint(pt1, pt2));
 }
 
 export function isPointInsideCircle(r, [x, y]) {
@@ -78,7 +81,7 @@ export function isPointInsideCircle(r, [x, y]) {
 }
 
 export function isAllPoints(points) {
-	return points.length === NUM_POINTS;
+	return points.length === MAX_NUM_POINTS;
 }
 
 export function isAnyPoint(points) {
